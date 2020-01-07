@@ -15,32 +15,6 @@ function promptUser() {
     }]);
 }
 
-const colors = {
-    green: {
-        wrapperBackground: "#E6E1C3",
-        headerBackground: "#C1C72C",
-        headerColor: "black",
-        photoBorderColor: "#black"
-    },
-    blue: {
-        wrapperBackground: "#5F64D3",
-        headerBackground: "#26175A",
-        headerColor: "white",
-        photoBorderColor: "#73448C"
-    },
-    pink: {
-        wrapperBackground: "#879CDF",
-        headerBackground: "#FF8374",
-        headerColor: "white",
-        photoBorderColor: "#FEE24C"
-    },
-    red: {
-        wrapperBackground: "#DE9967",
-        headerBackground: "#870603",
-        headerColor: "white",
-        photoBorderColor: "white"
-    }
-};
 
 
 async function init() {
@@ -63,6 +37,32 @@ async function init() {
                 stars: data.stars,
                 following: data.following
             }
+            const colors = {
+                green: {
+                    wrapperBackground: "#E6E1C3",
+                    headerBackground: "#C1C72C",
+                    headerColor: "black",
+                    photoBorderColor: "#black"
+                },
+                blue: {
+                    wrapperBackground: "#5F64D3",
+                    headerBackground: "#26175A",
+                    headerColor: "white",
+                    photoBorderColor: "#73448C"
+                },
+                pink: {
+                    wrapperBackground: "#879CDF",
+                    headerBackground: "#FF8374",
+                    headerColor: "white",
+                    photoBorderColor: "#FEE24C"
+                },
+                red: {
+                    wrapperBackground: "#DE9967",
+                    headerBackground: "#870603",
+                    headerColor: "white",
+                    photoBorderColor: "white"
+                }
+            };
             const html = `<!DOCTYPE html>
             <html lang="en">
             
@@ -74,65 +74,235 @@ async function init() {
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
                 <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
                 <title>Document</title>
-            </head>
+                <style>
+          @page {
+            margin: 0;
+          }
+         *,
+         *::after,
+         *::before {
+         box-sizing: border-box;
+         }
+         html, body {
+         padding: 0;
+         margin: 0;
+         }
+         html, body, .wrapper {
+         height: 100%;
+         }
+         .wrapper {
+         padding-top: 100px;
+         }
+         body {
+         background-color: white;
+         -webkit-print-color-adjust: exact !important;
+         font-family: 'Cabin', sans-serif;
+         }
+         main {
+         background-color: #E9EDEE;
+         height: auto;
+         padding-top: 30px;
+         }
+         h1, h2, h3, h4, h5, h6 {
+         font-family: 'BioRhyme', serif;
+         margin: 0;
+         text-align: center;
+         }
+         h1 {
+         font-size: 3em;
+         }
+         h2 {
+         font-size: 2.5em;
+         }
+         h3 {
+         font-size: 2em;
+         }
+         h4 {
+         font-size: 1.5em;
+         }
+         h5 {
+         font-size: 1.3em;
+         }
+         h6 {
+         font-size: 1.2em;
+         }
+         .photo-header {
+         position: relative;
+         margin: 0 auto;
+         margin-bottom: -50px;
+         display: flex;
+         justify-content: center;
+         flex-wrap: wrap;
+         padding: 10px;
+         width: 95%;
+         border-radius: 6px;
+         }
+         .photo-header img {
+         width: 250px;
+         height: 250px;
+         border-radius: 50%;
+         object-fit: cover;
+         margin-top: -75px;
+         box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+         }
+         .photo-header h1, .photo-header h2 {
+         width: 100%;
+         text-align: center;
+         }
+         .photo-header h1 {
+         margin-top: 10px;
+         }
+         .links-nav {
+         width: 100%;
+         text-align: center;
+         padding: 20px 0;
+         font-size: 1.1em;
+         }
+         .nav-link {
+         display: inline-block;
+         margin: 5px 10px;
+         }
+         .workExp-date {
+         font-style: italic;
+         font-size: .7em;
+         text-align: right;
+         margin-top: 10px;
+         }
+         .container {
+         padding: 50px;
+         padding-left: 100px;
+         padding-right: 100px;
+         }
+
+         .ele {
+            text-align: center;
+            justify-content: center;
+        }
+
+         .row {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between center;
+           margin-top: 20px;
+           margin-bottom: 20px;
+           text-align: center;
+         }
+
+         .card {
+           padding: 20px;
+           border-radius: 6px;
+           margin: 20px;
+           text-align: center;
+         }
+         .title {
+             margin-top: 60px;
+         }
+         
+         .col {
+         flex: 1;
+         text-align: center;
+         }
+
+         ul {
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            justify-content: center;
+            text-align: center;
+          }
+          
+          li {
+            float: center;
+          }
+          
+          li a {
+            display: block;
+            text-align: center;
+            padding: 5px;
+            text-decoration: none;
+          }
+
+         a, a:hover {
+         text-decoration: none;
+         color: inherit;
+         font-weight: bold;
+         }
+
+         @media print { 
+          body { 
+            zoom: .75; 
+          } 
+         }
+      </style>
+
+        </head>
             
-            <body>
-                <div class="container">
-                    <h1><img src="${userData.profilePic}" alt="profile pic height="200" width="200"></h1>
-                    <h1>Hi!</h1>
-                    <h1>My name is ${userData.name}</h1>
-                    <h3>Currently ${userData.worksfor} </h3>
-                    <ul>
-                        <li><a href='https://www.google.com/maps/place/${userData.location}/'><i class=“fas fa-location-arrow”></i>${userData.location}</a></li>
-                        <li><a href='https://github.com/${userData.userid}'><i class='fas fa-location-arrow'></i>Github</a></li>
-                        <li><a href=“${userData.website}“><i class=“fas fa-location-arrow”></i>Website</a></li>
-                    </ul>
-                    <div class="row">
-                        ${userData.bio}
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                Public Repositories
-                            </div>
-                            <div class="row">
-                                ${userData.repo}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                Followers
-                            </div>
-                            <div class="row">
-                                ${userData.followers}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                Github Stars
-                            </div>
-                            <div class="row">
-                                ${userData.stars}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                Following
-                            </div>
-                            <div class="row">
-                                ${userData.following}
-                            </div>
-                        </div>
-                    </div>
-            
+        <body>
+    <main>
+        <div class="container">
+            <div class="card">
+                <div class="photo-header">
+                    <img src="${userData.profilePic}" alt="profile pic height=" 200 " width="200 ">
                 </div>
-            
-                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-            </body>
+                <h1 class="title">Hi!</h1>
+                <h1>My name is ${userData.name}</h1>
+                <h3>Currently ${userData.worksfor} </h3>
+                <ul>
+                    <li><a href='https://www.google.com/maps/place/${userData.location}/'>${userData.location}</a></li>
+                    <li><a href='https://github.com/${userData.userid}'>Github</a></li>
+                    <li><a href=“${userData.website}“>Website</a></li>
+                </ul>
+            </div>
+        <div class="row ">
+           <h4>${userData.bio}<h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="row ele">
+                        <h3>Public Repositories</h3>
+                    </div>
+                    <div class="row ele">
+                        <h4>${userData.repo}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="row ele">
+                        <h3>Followers<h3>
+                    </div>
+                    <div class="row ele">
+                        <h4>${userData.followers}<h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="row ele">
+                        <h3>Github Stars<h3>
+                    </div>
+                    <div class="row ele">
+                        <h4>${userData.stars}<h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="row ele">
+                        <h3>Following<h3>
+                    </div>
+                    <div class="row ele">
+                        <h4>${userData.following}<h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
             
             </html>`
 
