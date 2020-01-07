@@ -78,13 +78,13 @@ async function init() {
             
             <body>
                 <div class="container">
-                    <h1><img src="https://avatars0.githubusercontent.com/u/55717746?s=400&v=4" alt="Smiley face" height="200" width="200"></h1>
+                    <h1><img src="${userData.profilePic}" alt="profile pic height="200" width="200"></h1>
                     <h1>Hi!</h1>
                     <h1>My name is ${userData.name}</h1>
                     <h3>Currently ${userData.worksfor} </h3>
                     <ul>
                         <li><a href='https://www.google.com/maps/place/${userData.location}/'><i class=“fas fa-location-arrow”></i>${userData.location}</a></li>
-                        <li><a href=“https://github.com/${userData.userid}“><i class=“fas fa-location-arrow”></i>Github</a></li>
+                        <li><a href='https://github.com/${userData.userid}'><i class='fas fa-location-arrow'></i>Github</a></li>
                         <li><a href=“${userData.website}“><i class=“fas fa-location-arrow”></i>Website</a></li>
                     </ul>
                     <div class="row">
